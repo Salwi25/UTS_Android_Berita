@@ -35,6 +35,10 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
                 R.array.labels_array, android.R.layout.simple_spinner_item);
         spinner.setAdapter(adapter);
 
+        if(spinner != null){
+            spinner.setOnItemSelectedListener(this);
+        }
+
 
         tanggalLahir.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override

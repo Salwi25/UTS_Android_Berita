@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class ContentDetails extends AppCompatActivity {
-    TextView judul, kategori, konten;
+    TextView judul, kategori, tanggalRilis, konten;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,15 +16,18 @@ public class ContentDetails extends AppCompatActivity {
 
         judul = findViewById(R.id.judul);
         kategori = findViewById(R.id.kategori);
+        tanggalRilis = findViewById(R.id.tanggal_rilis);
         konten = findViewById(R.id.konten);
 
         Intent intent = getIntent();
         String txt_judul = intent.getStringExtra("judul");
         String txt_kategori = intent.getStringExtra("kategori");
+        String txt_tanggalRilis = intent.getStringExtra("tanggalRilis");
         String txt_konten = intent.getStringExtra("konten");
 
         judul.setText(txt_judul);
         kategori.setText(txt_kategori);
+        tanggalRilis.setText(txt_tanggalRilis);
         konten.setText(txt_konten);
     }
 }

@@ -43,6 +43,7 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
                 intent.putExtra("judul", dataContent.getJudul());
                 intent.putExtra("kategori", dataContent.getKategori());
                 intent.putExtra("konten", dataContent.getKonten());
+                intent.putExtra("tanggalRilis", dataContent.getTanggalRilis());
                 view.getContext().startActivity(intent);
             }
         });
