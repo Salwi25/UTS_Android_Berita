@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,15 +13,19 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 
 public class Details extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     EditText tanggalLahir;
+    TextView textView_email;
     Spinner spinner;
     Button btnSelanjutnya;
     String mSpinner;
-
+    SharedPreferences sharedPreferences;
+    private static final String SHARED_PREF_NAME = "mypref";
+    private static final String KEY_EMAIL = "email";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +35,12 @@ public class Details extends AppCompatActivity implements AdapterView.OnItemSele
         tanggalLahir = findViewById(R.id.tanggal_lahir);
         spinner = findViewById(R.id.label_spinner);
         btnSelanjutnya = findViewById(R.id.selanjutnya_btn);
+        sharedPreferences = getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
+        textView_email = findViewById(R.id.tv_email);
+        String email = sharedPreferences.getString(KEY_EMAIL, null);
+        if (email != null) {
+            textView_email.setText(email);
+        }
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.labels_array, android.R.layout.simple_spinner_item);

@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class ContentDetails extends AppCompatActivity {
@@ -29,5 +31,13 @@ public class ContentDetails extends AppCompatActivity {
         kategori.setText(txt_kategori);
         tanggalRilis.setText(txt_tanggalRilis);
         konten.setText(txt_konten);
+
+        findViewById(R.id.edit_berita_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ContentDetails.this, AddBeritaForm.class);
+                startActivity(intent);
+            }
+        });
     }
 }

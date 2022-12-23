@@ -7,7 +7,7 @@ public class Content {
     private String tanggalRilis;
     private String kategori;
 
-    public Content(String judul, String konten, String minUmur, String tanggalRilis, String kategori) {
+    public Content() {
         this.judul = judul;
         this.konten = konten;
         this.minUmur = minUmur;

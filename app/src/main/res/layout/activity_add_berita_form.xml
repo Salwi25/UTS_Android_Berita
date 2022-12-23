@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddBeritaForm"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tambah Berita"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Judul"
+        android:textSize="24sp"
+        android:layout_marginStart="32sp"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/inputJudul"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:inputType="text"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/textbox"
+        android:layout_marginEnd="32dp"
+        android:hint="Masukkan judul"
+        android:paddingLeft="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Konten"
+        android:textSize="24sp"
+        android:layout_marginStart="32sp"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/inputKonten"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:inputType="text"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/textbox"
+        android:layout_marginEnd="32dp"
+        android:hint="Masukkan konten"
+        android:paddingLeft="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Min Umur"
+        android:textSize="24sp"
+        android:layout_marginStart="32sp"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/inputMinUmur"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:inputType="number"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/textbox"
+        android:layout_marginEnd="32dp"
+        android:hint="Masukkan umur"
+        android:paddingLeft="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tanggal Rilis"
+        android:textSize="24sp"
+        android:layout_marginStart="32sp"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/inputTanggalRilis"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:inputType="text"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/textbox"
+        android:layout_marginEnd="32dp"
+        android:hint="Masukkan tanggal"
+        android:paddingLeft="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kategori"
+        android:textSize="24sp"
+        android:layout_marginStart="32sp"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/inputKategori"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:inputType="text"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/textbox"
+        android:layout_marginEnd="32dp"
+        android:hint="Masukkan kategori"
+        android:paddingLeft="20dp"/>
+
+    <Button
+        android:id="@+id/tambah_btn"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:text="Tambah Berita" />
+
+
+</LinearLayout>

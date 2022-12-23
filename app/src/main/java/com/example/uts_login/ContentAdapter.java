@@ -5,12 +5,23 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.orhanobut.dialogplus.DialogPlus;
+import com.orhanobut.dialogplus.ViewHolder;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHolder> {
 
@@ -47,6 +58,45 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
                 view.getContext().startActivity(intent);
             }
         });
+
+        holder.edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final DialogPlus dialogPlus = DialogPlus.newDialog(holder.edit.getContext())
+                        .setContentHolder(new com.orhanobut.dialogplus.ViewHolder(R.layout.update_popup))
+                        .setExpanded(true, 1300)
+                        .create();
+
+//                dialogPlus.show();
+
+                View view1 = dialogPlus.getHolderView();
+
+                EditText judul = view1.findViewById(R.id.edit_judul);
+                EditText kategori = view1.findViewById(R.id.edit_kategori);
+                EditText konten = view1.findViewById(R.id.edit_kategori);
+
+
+                Button updateBtn = view1.findViewById(R.id.update_btn);
+
+                judul.setText(dataContent.getJudul());
+                kategori.setText(dataContent.getKategori());
+                konten.setText(dataContent.getKonten());
+
+                dialogPlus.show();
+
+                updateBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Map<String,Object> map = new HashMap<>();
+                        map.put("judul",judul.getText().toString());
+                        map.put("kategori",kategori.getText().toString());
+                        map.put("konten",konten.getText().toString());
+
+                        FirebaseDatabase.getInstance().getReference().child(holder.key).setValue(map);
+                    }
+                });
+            }
+        });
     }
 
     @Override
@@ -56,11 +106,17 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView judul, kategori, konten;
+        Button edit, delete;
+        String key;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             judul = itemView.findViewById(R.id.judul);
             kategori = itemView.findViewById(R.id.kategori);
             konten = itemView.findViewById(R.id.konten);
+
+            edit = itemView.findViewById(R.id.edit_berita_btn);
+            delete = itemView.findViewById(R.id.delete_berita_btn);
         }
     }
 }
